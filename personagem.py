@@ -12,6 +12,7 @@ class Personagem:
         self.pos_x = x_inicial
         self.pos_y = y_inicial
 
+        self.pontuacao = 0 
 
 
     def movimentar(self,tecla_direita,tecla_esquerda):
@@ -23,3 +24,7 @@ class Personagem:
         if teclas[tecla_esquerda]:
             if self.pos_x > 0:
                 self.pos_x -=0.5
+                
+                
+                #poder 
+                #if teclas [tecla_espaco]:

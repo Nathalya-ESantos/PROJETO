@@ -25,6 +25,9 @@ macaco = Personagem ("imagens/macaco.png", 200, 200, 150, 150)
 fundo = pygame.image.load("imagens/selva-1.png")
 fundo = pygame.transform.scale(fundo,(800,600))
 
+#Criando fonte do placra
+fonte_placar = pygame.font.SysFont("Bernard MT Condensed",22)
+
 lista_obstaculos = [Obstaculo("Imagens/fruta-que-gosta1.png", 100, 100),
                     Obstaculo ("Imagens/fruta-que-gosta2.png", 100, 100),
                     Obstaculo ("Imagens/fruta-que-gosta3.png", 100, 100),
@@ -59,7 +62,7 @@ while not fim_jogo :
 
 
                 #Criando o placar
-        #placar_macaco = fonte_placar.render(f"macaco: {macaco.pontuacao}",True,cores["Azul"])
+        placar_macaco = fonte_placar.render(f"macaco: {macaco.pontuacao}", True, cores["Azul"])
         tela.blit(placar_macaco,(10,0))
 
         
@@ -72,6 +75,11 @@ while not fim_jogo :
         
         tela.blit(macaco.imagem,(macaco.pos_x,macaco.pos_y))
         macaco.movimentar(pygame.K_RIGHT,pygame.K_LEFT)
+
+    elif estado == "FIM_JOGO":
+        tela.fill((0,0,255))
+        fonte = pygame.font.SysFont("Bernard MT Condensed",40)
+        texto_vitoria = fonte.render("Vitoria do macaco", True, (0,0,0))
 
     #atualizar página
     pygame.display.update()
